@@ -14,9 +14,9 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="annotatedClasses">
             <list>
-                <value>car.Car</value>
-                <value>customer.Customer</value>
-                <value>order.Order</value>
+                <value>com.cdk.carbuy.domain.Car</value>
+                <value>com.cdk.carbuy.domain.Customer</value>
+                <value>com.cdk.carbuy.domain.Order</value>
 
             </list>
         </property>
