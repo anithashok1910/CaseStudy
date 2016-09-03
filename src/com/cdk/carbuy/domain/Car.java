@@ -16,15 +16,24 @@ public class Car {
     private String model;
     @Column(name = "year")
     private int year;
+    @Column(name = "price")
+    private int price;
+    private String description;
 
-    private String carDescription;
-
-    public String getCarDescription() {
-        return carDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setCarDescription(String carDescription) {
-        this.carDescription = carDescription;
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getId() {
@@ -67,6 +76,7 @@ public class Car {
         this.model = car.getMake();
         this.id = car.getId();
         this.year = car.getYear();
+        this.price = car.getPrice();
     }
     @Override
     public String toString() {
@@ -75,7 +85,7 @@ public class Car {
                 ", make='" + make + '\'' +
                 ", model='" + model + '\'' +
                 ", year=" + year +
-                ", description=" + carDescription +
+                ", description=" + description +
                 '}';
     }
 }

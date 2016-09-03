@@ -10,6 +10,24 @@ public class Car {
     private String make;
     private String model;
     private int year;
+    private int price;
+    private String description;
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
     public int getId() {
         return id;
@@ -43,11 +61,12 @@ public class Car {
         this.year = year;
     }
 
-    public Car(int id, String make, String model, int year) {
+    public Car(int id, String make, String model, int year,int price) {
         this.id = id;
         this.make = make;
         this.model = model;
         this.year = year;
+        this.price = year;
     }
 
     public Car() {
@@ -58,6 +77,7 @@ public class Car {
         this.model = car.getMake();
         this.id = car.getId();
         this.year = car.getYear();
+        this.price = car.getPrice();
     }
 
 
@@ -68,6 +88,7 @@ public class Car {
                 ", make='" + make + '\'' +
                 ", model='" + model + '\'' +
                 ", year=" + year +
+                ", price=" + price +
                 '}';
     }
 }

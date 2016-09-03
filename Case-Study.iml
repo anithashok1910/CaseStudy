@@ -469,5 +469,15 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="file://$USER_HOME$/Downloads/spring_mvc_annotation_response/lib" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$USER_HOME$/Downloads/spring_mvc_annotation_response/lib" recursive="false" />
+      </library>
+    </orderEntry>
   </component>
 </module>

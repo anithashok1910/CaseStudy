@@ -1,14 +1,16 @@
-{
-  "Car":[
-    {"id":"20001333"},
-    {"make":"AM General"},
-    {"model":"Hummer"},
-    {"year":"1998"}],
-  "Customer":[
-    {"name":"Atishay"},
-    {"address":"Qr. 2345,Dilli Colony,Pune"},
-    {"email":"atishay.lahiri@gmail.com"},
-    {"mob_no":8898894455}
-  ]
+[{"orderID":null,
+  "customer":{
+    "customerId":null,
+    "name":"Atishay",
+    "address":"Qr. 2345,Dilli Colony,Pune",
+    "email":"atishay.lahiri@gmail.com",
+    "mob_no":8898894454
+  },
+  "car":
+  {"id":20001333,
+    "make":"AM General",
+    "model":"Hummer",
+    "year":1998
+  }
 }
-
+]

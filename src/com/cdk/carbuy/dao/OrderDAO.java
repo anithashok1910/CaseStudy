@@ -4,6 +4,7 @@ import com.cdk.carbuy.dto.Order;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
 import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.stereotype.Component;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -11,6 +12,7 @@ import java.io.FileReader;
 /**
  * Created by guptah on 9/1/2016.
  */
+@Component
 public class OrderDAO {
     private HibernateTemplate hibernateTemplate;
 
