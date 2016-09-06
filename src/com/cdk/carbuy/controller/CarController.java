@@ -72,16 +72,11 @@ public class CarController {
         customer.setName(request.getParameter("name"));
         System.out.println("hello 3");
         customer.setAddress(request.getParameter("address"));
-        System.out.println("hello 4");
         customer.setEmail(request.getParameter("email"));
-        System.out.println("hello 5");
         customer.setMob_no(Long.parseLong(request.getParameter("mob_no")));
-        System.out.println("hello 6");
-        System.out.println(customer.toString());
         Order order = new Order();
         order.setCustomer(customer);
         order.setCar(car);
-        System.out.println(order.toString());
         order=orderDAO.addOrder(order);
         Gson gson = new Gson();
         return gson.toJson(order);
