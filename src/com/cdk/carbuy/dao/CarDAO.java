@@ -4,6 +4,7 @@ package com.cdk.carbuy.dao;
 import com.cdk.carbuy.domain.Car;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Component;
 
@@ -30,12 +31,14 @@ public class CarDAO {
             car.setYear(cars[i].getYear());
             car.setPrice(cars[i].getPrice());
             car.setDescription(cars[i].getDescription());
+            car.setImageURL(cars[i].getImageURL());
             carList.add(car);
         }
         return carList;
     }
 
 
+    @Autowired
     private HibernateTemplate hibernateTemplate;
 
     public HibernateTemplate getHibernateTemplate() {

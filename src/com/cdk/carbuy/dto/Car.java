@@ -1,5 +1,7 @@
 package com.cdk.carbuy.dto;
 
+import java.util.Arrays;
+
 /**
  * Created by guptah on 9/1/2016.
  */
@@ -11,7 +13,16 @@ public class Car {
     private String model;
     private int year;
     private int price;
-    private String description;
+    private String[] description;
+    private String imageURL;
+
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
 
     public int getPrice() {
         return price;
@@ -21,11 +32,11 @@ public class Car {
         this.price = price;
     }
 
-    public String getDescription() {
+    public String[] getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(String[] description) {
         this.description = description;
     }
 
@@ -80,7 +91,6 @@ public class Car {
         this.price = car.getPrice();
     }
 
-
     @Override
     public String toString() {
         return "Car{" +
@@ -89,6 +99,8 @@ public class Car {
                 ", model='" + model + '\'' +
                 ", year=" + year +
                 ", price=" + price +
+                ", description=" + Arrays.toString(description) +
+                ", imageURL='" + imageURL + '\'' +
                 '}';
     }
 }

@@ -3,12 +3,12 @@ package com.cdk.carbuy.controller;
 import com.cdk.carbuy.dao.CarDAO;
 import com.cdk.carbuy.dao.OrderDAO;
 import com.cdk.carbuy.dto.Car;
+import com.cdk.carbuy.dto.Customer;
 import com.cdk.carbuy.dto.Order;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 @Controller
 public class CarController {
     @Autowired
-    private CarDAO carDAO;
+    private CarDAO carDAO = null;
 
     public CarDAO getCarDAO() {
         return carDAO;
@@ -34,7 +34,7 @@ public class CarController {
     }
 
     @Autowired
-    private OrderDAO orderDAO;
+    private OrderDAO orderDAO= null;
 
     public OrderDAO getOrderDAO() {
         return orderDAO;
@@ -44,29 +44,28 @@ public class CarController {
         this.orderDAO = orderDAO;
     }
 
-    @RequestMapping(value = "/list.do",method = RequestMethod.GET)
+    @RequestMapping(value = "/list",method = RequestMethod.GET)
     public @ResponseBody ArrayList<Car> getCarListings(HttpServletRequest request, HttpServletResponse response){
         ArrayList<Car> carList = null;
         try {
             carList = carDAO.getCarData();
-        } catch (FileNotFoundException e) {
+
+        } catch (Exception e) {
             e.printStackTrace();
         }finally {
             return carList;
         }
     }
-    @RequestMapping(value = "/placeOrder.do",method = RequestMethod.GET)
-    public @ResponseBody Order placeOrder(HttpServletRequest request,HttpServletResponse response,String jsonString){
-        com.cdk.carbuy.dto.Order order = null;
-        try {
-            order = orderDAO.parseOrderRequest(jsonString);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }finally {
-            order=orderDAO.addOrder(order);
-            return order;
-        }
-
+    @RequestMapping(value = "/placeOrder",method = RequestMethod.GET)
+    public @ResponseBody Order placeOrder(HttpServletRequest request, HttpServletResponse response,@RequestParam ("car")Car car,@RequestParam ("customer") Customer customer){
+        System.out.println(customer.toString());
+        System.out.println(car.toString());
+        Order order = new Order();
+        order.setCustomer(customer);
+        order.setCar(car);
+        order=orderDAO.addOrder(order);
+        return order;
     }
 
 }
+

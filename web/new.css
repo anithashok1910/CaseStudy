@@ -1,0 +1,154 @@
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+/* Add a gray background color and some padding to the footer */
+footer {
+    background-color: #f2f2f2;
+    padding: 25px;
+}
+
+.carousel-inner img {
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+    min-height:200px;
+}
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+@media (max-width: 600px) {
+    .carousel-caption {
+        display: none;
+    }
+}
+
+
+#myModal
+{
+    width:100%;
+    height:100%;
+}
+.productDesc
+{
+
+float:left;
+clear:left;
+
+}
+.modal-body img{
+   /* border:2px solid blue;*/
+    float:left;
+    position:relative;
+    left:2%;
+    top:-3%;
+
+
+}
+#myModal
+{
+    background-color: #333333;
+
+}
+.formStyle{
+    height:30%;
+    width:40%;
+    align:center;
+    border:2px solid green;
+    position: relative;
+    float:right;
+    right:40%;
+    top:5%;
+
+}
+
+.modal-dialog
+{
+    width:100%;
+    height:100%;
+
+}
+.col-sm-4
+{
+    padding:2%;
+}
+.d{
+    border:2px solid black;
+    width:90%;
+    height:90%;
+}
+
+#myModal * {
+    /* With these codes padding and border does not increase it's width and gives intuitive style.*/
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#myModal body {
+    margin:0;
+    padding:0;
+    font-family: 'Roboto Slab', serif;
+}
+#myModal div#envelope{
+    width: 55%;
+    margin: 5px 50px 10px 45%;
+    padding:10px  2px;
+
+
+
+
+}
+#myModal form{
+    width:70%;
+    margin:4% 15%;
+}
+#myModal header{
+    background-color: #4180C5;
+    text-align: center;
+    padding-top: 12px;
+    padding-bottom: 8px;
+    margin-top: -30px;
+    margin-bottom: 25px;
+    border-radius: 10px 10px 0 0;
+    color: aliceblue;
+}
+
+/* Makes responsive fields. Sets size and field alignment.*/
+#myModal input[type=text]{
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width:100%;
+    padding: 15px;
+    border-radius:5px;
+    border:1px solid #7ac9b7;
+}
+#myModal input[type=submit]
+{
+    margin-bottom: 20px;
+    width:100%;
+    padding: 15px;
+    border-radius:5px;
+    border:1px solid #7ac9b7;
+    background-color: #4180C5;
+    color: aliceblue;
+    font-size:15px;
+    cursor:pointer;
+}
+#myModal #submit:hover
+{
+    background-color: black;
+}
+#myModal textarea{
+    width:100%;
+    padding: 15px;
+    margin-top: 10px;
+    border:1px solid #7ac9b7;
+    border-radius:5px;
+    margin-bottom: 20px;
+    resize:none;
+}
+#myModal input[type=text]:focus,textarea:focus {
+    border-color: #4697e4;
+}
+

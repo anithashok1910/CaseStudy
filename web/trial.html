@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <title>Car</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="new.css" rel="stylesheet" type="text/css">
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="meraapp.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#about").click(function () {
+                $("#whole").load("about.html");
+
+            });
+        });
+        $(document).ready(function () {
+            $("#contact").click(function () {
+                $("#whole").load("contactus.html");
+
+            });
+        });
+        $(document).ready(function () {
+            $("#R").click(function () {
+                $("#w").load("images2.html");
+
+            });
+        });
+    </script>
+
+</head>
+<body ng-app="myApp" ng-controller="MainCtrl" ng-init = "getCarData()">
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Logo</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="temp.html">Home</a></li>
+                <li id="about"><a href="#">About</a></li>
+                <li id="contact"><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div id="whole">
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="img/HERO_595.jpg" alt="Image">
+                <div class="carousel-caption">
+                    <h3>Sell $</h3>
+                    <p>Money Money.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="img/punto-pure-banner.jpg" alt="Image">
+                <div class="carousel-caption">
+                    <h3>More Sell $</h3>
+                    <p>Lorem ipsum...</p>
+                </div>
+
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+        </div>
+        <div class="container text-center">
+            <h3>Have a Look</h3><br>
+            <div class="row" id="w">
+                <div ng-init = "cars" = id="hero" class="col-sm-4" ng-repeat="car in cars | orderBy: 'id' " data-toggle="modal" data-target="#myModal">
+                    <div class="d"><img src="img\{{car.imageURL}}" width="100%" height="100%" ng-click="demo(car)" class="img-responsive"  alt="Image">
+                        <div>{{car.make}}<br>{{car.price}}
+                        </div>
+                    </div>
+
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" role="dialog" >
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="static">&times;</button>
+                                    <h4 class="modal-title">{{make}}</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="img\{{car.imageURL}}" width="40%" height="40%">
+                                    <div class="productDesc"><h6><b>ID:</b>{{id}}</h6><br>
+                                        <h6><b>Make:</b>{{make}}</h6><br>
+                                        <h6><b>Model:</b>{{model}}</h6><br>
+                                        <h6><b>Year:</b>{{year}}</h6><br>
+                                        <h4><b>Price:</b>{{price}}</h4><br>
+                                        <h6><b>Description</b></h6><h6 ng-repeat="detail in description">{{detail}}</h6>
+
+                                    </div>
+
+                                </div>
+
+                                <div id="envelope">
+                                    <form action="" method="post">
+                                        <header>
+                                            <h2>Please fill the following details</h2>
+                                            <p>All fields are mandatory to be filled</p>
+                                        </header>
+                                        <label>Your Name</label>
+                                        <input name="name" placeholder="Enter name" type="text" width="100px;">
+
+                                        <label>Contact Number</label>
+                                        <input name="contact" placeholder="Enter your Contact Number" type="text">
+                                        <label>Email Address</label>
+                                        <input name="contact" placeholder="Enter your Email Id" type="text">
+
+                                        <label>Address</label>
+                                        <textarea cols="15" name="Enter address" placeholder="Message" rows="5">
+                                </textarea>
+                                        <input id="submit" type="submit" value="Proceed for Transaction">
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <script>
+            $(document).ready(function () {
+                $("#myBtn").click(function () {
+                    $("#my").modal();
+                });
+            });
+        </script>
+
+    </div>
+
+
+
+    <br>
+
+    <footer class="container-fluid text-center">
+        <a href="#">1</a>&nbsp; &nbsp;&nbsp;&nbsp;
+        <a  href="#">2</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a id="R" href="#">3</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a  href="#">4</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a  href="#">5</a>
+    </footer>
+</div>
+</body>
+</html>
+

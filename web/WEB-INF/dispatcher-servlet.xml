@@ -8,7 +8,7 @@
 
 <bean id="viewResolver"
 class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-p:prefix="/" p:suffix=".jsp" />
+p:prefix="/" p:suffix=".html" />
 
 <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
     <property name="url" value="jdbc:mysql://localhost:3306/car-buy"></property>
@@ -22,6 +22,11 @@ p:prefix="/" p:suffix=".jsp" />
         <property name="annotatedClasses">
             <list>
                 <value>com.cdk.carbuy.domain.Car</value>
+                <value>com.cdk.carbuy.domain.Order</value>
+                <value>com.cdk.carbuy.domain.Customer</value>
+                <value>com.cdk.carbuy.dao.OrderDAO</value>
+                <value>com.cdk.carbuy.dao.CarDAO</value>
+                <value>com.cdk.carbuy.dao.CustomerDAO</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -37,10 +42,19 @@ p:prefix="/" p:suffix=".jsp" />
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
 
-    <bean id = "employeeDAO" class="com.cdk.carbuy.dao.CarDAO">
+    <!--<bean id = "carDAO" class="com.cdk.carbuy.dao.CarDAO">
         <property name="hibernateTemplate" ref="hibernateTemplate"></property>
     </bean>
+    <bean id = "orderDAO" class="com.cdk.carbuy.dao.OrderDAO">
+        <property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+    <bean id = "customerDAO" class="com.cdk.carbuy.dao.CustomerDAO">
+        <property name="hibernateTemplate" ref="hibernateTemplate"></property>
+    </bean>
+-->
 
     <mvc:annotation-driven/>
     <context:component-scan base-package="com.cdk.carbuy.controller"/>
+    <context:component-scan base-package="com.cdk.carbuy.domain"/>
+    <context:component-scan base-package="com.cdk.carbuy.dao"/>
 </beans>

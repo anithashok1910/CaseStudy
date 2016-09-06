@@ -3,6 +3,7 @@ package com.cdk.carbuy.dao;
 import com.cdk.carbuy.dto.Order;
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +15,7 @@ import java.io.FileReader;
  */
 @Component
 public class OrderDAO {
+    @Autowired
     private HibernateTemplate hibernateTemplate;
 
     public HibernateTemplate getHibernateTemplate() {

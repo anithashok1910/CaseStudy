@@ -1,13 +1,18 @@
 package com.cdk.carbuy.domain;
 
+import org.springframework.stereotype.Component;
+
 import javax.persistence.*;
+import java.util.Arrays;
 
 /**
  * Created by guptah on 9/1/2016.
  */
 @Entity
 @Table(name = "car_t")
+@Component
 public class Car {
+    @Id
     @Column(name = "id")
     private int id;
     @Column(name = "make")
@@ -18,9 +23,10 @@ public class Car {
     private int year;
     @Column(name = "price")
     private int price;
-    private String description;
+    private String[] description;
+    private String imageURL;
 
-    public String getDescription() {
+    public String[] getDescription() {
         return description;
     }
 
@@ -32,7 +38,7 @@ public class Car {
         this.price = price;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(String[] description) {
         this.description = description;
     }
 
@@ -68,6 +74,14 @@ public class Car {
         this.year = year;
     }
 
+    public String getImageURL() {
+        return imageURL;
+    }
+
+    public void setImageURL(String imageURL) {
+        this.imageURL = imageURL;
+    }
+
     public Car() {
     }
 
@@ -78,6 +92,7 @@ public class Car {
         this.year = car.getYear();
         this.price = car.getPrice();
     }
+
     @Override
     public String toString() {
         return "Car{" +
@@ -85,7 +100,8 @@ public class Car {
                 ", make='" + make + '\'' +
                 ", model='" + model + '\'' +
                 ", year=" + year +
-                ", description=" + description +
+                ", price=" + price +
+                ", description=" + Arrays.toString(description) +
                 '}';
     }
 }
