@@ -92,6 +92,14 @@ footer {
     height:90%;
     text-align: center;
 }
+
+
+
+#orderDetails
+{
+    width:100%;
+    height:100%;
+}
 #acceptance{
     border:2px solid black;
     width:30%;
