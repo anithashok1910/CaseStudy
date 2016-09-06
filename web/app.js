@@ -3,7 +3,6 @@ app.controller('MainCtrl', function ($scope, $http) {
     $scope.c = {};
 
     $scope.getCarData = function () {
-        console.log("hey hey hey");
         $http({
             method: "GET",
             url: "/list.do"
@@ -27,18 +26,32 @@ app.controller('MainCtrl', function ($scope, $http) {
 
     $scope.sendData = function (car, customer) {
         var order_ID = 0;
-        var orderRequest = $scope.mergeRecursive(order_ID, customer);
-        orderRequest = $scope.mergeRecursive(orderRequest, car);
-        console.log(car);
-        console.log(customer);
-        console.log(orderRequest);
+        var order = new Order(order_ID,car,customer);
+        var params = {
+            "carId": car.id,
+            "model": car.model,
+            "make": car.make,
+            "price": car.price,
+            "year": car.year,
+            "name":customer.name,
+            "address":customer.address,
+            "email":customer.email,
+            "mob_no":customer.mob_no
+        }
+        console.log(params);
         $http({
             url: "/placeOrder.do",
-            method: 'GET',
-            params: {car:car,
-                customer:customer},
-        }).success(function (response) {
+            method: 'POST',
+            params: params,
+            paramSerializer: '$httpParamSerializerJQLike',
+            dataType:"JSON"
+
+        }).then(function mySucces(response) {
             $scope.order = response.data;
+        }, function myError(response) {
+            console.log(response);
+            alert(response);
+            //$scope.myWelcome = response.statusText;
         });
     }
     $scope.sendValues=function() {
@@ -47,12 +60,13 @@ app.controller('MainCtrl', function ($scope, $http) {
         var address = $("#address").val();
         var email = $("#email").val();
         var contactNo = $("#phone").val();
-        var Id = $("#ID_label").text();
+        var Id = $("#id_label").text();
         var make = $("#make_label").text();
         var model = $("#model_label").text();
         var price = $("#price_label").text();
         var year = $("#year_label").text();
         var car = new Car(Id, make, model, price, year);
+        console.log(car);
         var customer = new Customer(customerId, name, address, email, contactNo);
         $scope.sendData(car, customer);
         var t = "{{order.orderID}} <br>";
@@ -66,22 +80,6 @@ app.controller('MainCtrl', function ($scope, $http) {
 
     }
 
-    $scope.mergeRecursive = function(obj1, obj2) {
-        for (var p in obj2) {
-            try {
-
-                if (obj2[p].constructor == Object) {
-                    obj1[p] = MergeRecursive(obj1[p], obj2[p]);
-                } else {
-                    obj1[p] = obj2[p];
-                }
-            } catch (e) {
-                obj1[p] = obj2[p];
-            }
-        }
-        return obj1;
-    }
-
     Car = function(Id, make, model, price, year) {
         this.id = Id;
         this.make = make;
@@ -89,6 +87,12 @@ app.controller('MainCtrl', function ($scope, $http) {
         this.year = year;
         this.price = price;
 
+    }
+
+    Order = function (orderID,car,customer) {
+        this.orderID = orderID;
+        this.car = car;
+        this.customer = customer;
     }
    Customer = function(Id, name, address, email, contactNo) {
         this.customerId = Id;

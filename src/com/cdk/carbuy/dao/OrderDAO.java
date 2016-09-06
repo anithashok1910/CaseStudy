@@ -28,7 +28,8 @@ public class OrderDAO {
 
     public Order addOrder(Order order) {
         com.cdk.carbuy.domain.Order domainOrder = new com.cdk.carbuy.domain.Order(order);
-        order = new Order((com.cdk.carbuy.domain.Order)hibernateTemplate.save(domainOrder));
+        hibernateTemplate.save(domainOrder);
+        order = new Order(domainOrder);
         return order;
     }
 

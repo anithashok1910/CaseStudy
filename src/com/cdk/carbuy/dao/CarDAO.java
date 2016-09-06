@@ -21,7 +21,7 @@ public class CarDAO {
     public ArrayList<com.cdk.carbuy.dto.Car> getCarData() throws FileNotFoundException {
         Gson gson = new Gson();
         JsonReader reader = new JsonReader(new FileReader(FILENAME));
-        Car cars[] = gson.fromJson(reader, Car[].class);
+        com.cdk.carbuy.dto.Car cars[] = gson.fromJson(reader, com.cdk.carbuy.dto.Car[].class);
         ArrayList<com.cdk.carbuy.dto.Car> carList = new ArrayList<>();
         for(int i = 0; i<cars.length;i++){
             com.cdk.carbuy.dto.Car car = new com.cdk.carbuy.dto.Car();

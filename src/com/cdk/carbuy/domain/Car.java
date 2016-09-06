@@ -23,12 +23,6 @@ public class Car {
     private int year;
     @Column(name = "price")
     private int price;
-    private String[] description;
-    private String imageURL;
-
-    public String[] getDescription() {
-        return description;
-    }
 
     public int getPrice() {
         return price;
@@ -36,10 +30,6 @@ public class Car {
 
     public void setPrice(int price) {
         this.price = price;
-    }
-
-    public void setDescription(String[] description) {
-        this.description = description;
     }
 
     public int getId() {
@@ -74,14 +64,6 @@ public class Car {
         this.year = year;
     }
 
-    public String getImageURL() {
-        return imageURL;
-    }
-
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
-    }
-
     public Car() {
     }
 
@@ -101,7 +83,6 @@ public class Car {
                 ", model='" + model + '\'' +
                 ", year=" + year +
                 ", price=" + price +
-                ", description=" + Arrays.toString(description) +
                 '}';
     }
 }

@@ -80,8 +80,8 @@
                                 <h4 class="modal-title">{{make}}</h4>
                             </div>
                             <div class="modal-body">
-                                <img src="img\{{car.imageURL}}" width="40%" height="40%">
-                                <div class="productDesc"><h6><b><label id="id_label" >ID:</label></b>{{id}}</h6><br>
+                                <img src="img\{{imageURL}}" width="40%" height="40%">
+                                <div class="productDesc"><h6><b><label id="id_label">{{id}}</label></b></h6><br>
                                     <h6><b>Make:</b><label id="make_label" >{{make}}</label></h6><br>
                                     <h6><b>Model:</b><label id="model_label" >{{model}}</label></h6><br>
                                     <h6><b>Year:</b><label id="year_label" >{{year}}</label></h6><br>
@@ -99,29 +99,23 @@
                                         <p>All fields are mandatory to be filled</p>
                                     </header>
                                     <label>Your Name</label>
-                                    <input  id="name" placeholder="Enter name" type="text"  width="100px;">
+                                    <input  id="name" placeholder="Enter name" type="text" width="100px;" required>
 
                                     <label>Contact Number</label>
-                                    <input id="phone" placeholder="Enter your Contact Number"  type="text">
+                                    <input id="phone" placeholder="Enter your Contact Number"  type="number" required>
                                     <label>Email Address</label>
-                                    <input id="email" placeholder="Enter your Email Id" type="text" >
+                                    <input id="email" placeholder="Enter your Email Id" type="email" required>
 
                                     <label>Address</label>
-                                    <textarea cols="15" id="address" placeholder="Address" rows="2">
-                                </textarea>
+                                    <input type="text" id="address" placeholder="Address"  required>
+                                </input>
                                     <button type="button"  ng-click="sendValues()">Make Transaction</button>
                                 </form>
                             </div>
-
-
-
                         </div>
-
-
                     </div>
                 </div>
             </div>
-
         </div>
         <div id="hero" class="col-sm-4" ng-repeat="car in cars | orderBy: 'id' "  data-toggle="modal" data-target="#myModal" >
             <div class="d">
@@ -130,11 +124,7 @@
                 </div>
             </div>
         </div>
-
-
     </div>
-
-
 </div>
 </body>
 </html>
