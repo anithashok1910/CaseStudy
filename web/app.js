@@ -1,8 +1,6 @@
 var app = angular.module('myApp', []);
 app.controller('MainCtrl', function ($scope, $http) {
     $scope.c = {};
-
-
     $scope.showWhat = function () {
         $scope.beforeOrder = true;
         $scope.afterOrder = false;
@@ -30,6 +28,7 @@ app.controller('MainCtrl', function ($scope, $http) {
         $scope.price = c.price;
         $scope.description = c.description;
     }
+
 
     $scope.sendData = function (car, customer) {
         var order_ID = 0;
@@ -64,20 +63,26 @@ app.controller('MainCtrl', function ($scope, $http) {
 
         });
     }
+
     $scope.sendValues=function() {
-        alert("Congrat your order is placed ");
+
         var customerId = 0;
-        var name = $("#name").val();
-        var address = $("#address").val();
-        var email = $("#email").val();
-        var contactNo = $("#phone").val();
-        var Id = $("#id_label").text();
-        var make = $("#make_label").text();
-        var model = $("#model_label").text();
-        var price = $("#price_label").text();
-        var year = $("#year_label").text();
+        var name = $scope.name;
+        var address = $scope.address;
+        var email = $scope.email;
+        var contactNo = $scope.phone;
+        var Id = $scope.id;
+        console.log(Id);
+        var make = $scope.make;
+        console.log(make);
+        var model = $scope.model;
+        console.log(model);
+        var price = $scope.price;
+        console.log(price);
+        var year = $scope.year;
+        console.log(year);
         var car = new Car(Id, make, model, price, year);
-        console.log(car);
+
         var customer = new Customer(customerId, name, address, email, contactNo);
         $scope.sendData(car, customer);
         return false;
@@ -107,9 +112,6 @@ app.controller('MainCtrl', function ($scope, $http) {
     }
 
 });
-
-
-
 
 
 

@@ -22,6 +22,11 @@ footer {
     min-height:200px;
 }
 
+.modal-body img{
+    width: 380px;
+    height:240px;
+}
+
 /* Hide the carousel text when the screen is less than 600 pixels wide */
 @media (max-width: 600px) {
     .carousel-caption {
@@ -35,23 +40,16 @@ footer {
     width:100%;
     height:100%;
 }
-.modal-body img
-{
-    border:2px solid black;
-    width:35%;
-    height:30%;
 
-}
 .productDesc
-{
-
+{   margin-left: 20px;
+    width: 400px;
     float:left;
     clear:left;
     text-align: center;
 
 }
 .modal-body img{
-    /* border:2px solid blue;*/
     float:left;
     position:relative;
     left:2%;
@@ -59,11 +57,18 @@ footer {
 
 
 }
+#carListing{
+    cursor: pointer;
+}
+.modal-content{
+    height: 100vh;
+}
 #myModal
 {
     background-color: #333333;
 
 }
+
 .formStyle{
     height:30%;
     width:40%;
@@ -96,17 +101,19 @@ footer {
 
 
 #orderDetails
-{
-    width:100%;
-    height:100%;
+{   text-align:left;
+    width:40%;
+    height:80%;
+    position:relative;
+    left: 55%;
 }
-#acceptance{
-    border:2px solid black;
-    width:30%;
-    height:40%;
-    float:right;
+
+#orderDetails h3
+{
+
     position: relative;
-    top:-80%;
+    top:-8%;
+    left:-20%;
 }
 
 #myModal * {
