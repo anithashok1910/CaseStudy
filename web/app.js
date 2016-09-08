@@ -13,7 +13,7 @@ app.controller('MainCtrl', function ($scope, $http) {
         }).then(function mySuccess(response) {
             $scope.cars = response.data;
         }, function myError(response) {
-            alert(response.statusText);
+            alert("Unable to process request! Please try later");
             $scope.cars = response.statusText;
         });
     }
@@ -44,7 +44,6 @@ app.controller('MainCtrl', function ($scope, $http) {
             "email":customer.email,
             "mob_no":customer.mob_no
         }
-        console.log(params);
         $http({
             url: "/placeOrder.do",
             method: 'POST',
@@ -54,12 +53,10 @@ app.controller('MainCtrl', function ($scope, $http) {
 
         }).then(function mySucces(response) {
             $scope.order = response.data;
-            console.log($scope.order);
             $scope.beforeOrder = false;
             $scope.afterOrder= true;
         }, function myError(response) {
-            console.log(response);
-            alert(response);
+            alert("Unable to process request! Please try later");
 
         });
     }
